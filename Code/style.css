@@ -14,3 +14,27 @@
     --text-color: #2c2c2c;
     --main-color: #f4a261;
 }
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body {
+    background:var(--bg-color);
+    color: var(--text-color);
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem 12% 4rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    justify-content: space-between;
+    allign-items: center;
+    z-index: 5;
+}
+
