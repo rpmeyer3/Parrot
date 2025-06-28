@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {cn} from'@/lib/utils';
 
 const navItems = [
-    {name: "Home", href: "#About"},
+    {name: "About", href: "#About"},
     {name: "Projects", href: "#Projects"},
     {name: "Educations", href: "#Education"},
     {name: "Skills", href: "#Skills"},
@@ -11,6 +11,7 @@ const navItems = [
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,12 +28,38 @@ export const Navbar = () => {
     >
 
         <div className="container flex items-center justify-between">
-            <a className="text-xl font-bold text-primary flex items-center">
+            <a 
+                className="text-xl font-bold text-primary flex items-center"
+                href="About"
+            >
                 <span className="relative z-10">
-                    <span className="text-glow text-foreground"> Ryan's </span> Website
+                    <span className="text-glow text-foreground"> Ryan Meyer </span> on the Web
                 </span>
             </a>
 
+            {/* desktop nav ver */}
+            <div className="hidden md:flex space-x-8">
+                {navItems.map((item, key) => (
+                    <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300">{item.name}</a>
+                ))}
+            </div>
+
+
+            {/* mobile nav version */}
+            <div className={cn(
+                "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden",
+                isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            )}>
+                <div className="flex flex-col space-y-8 text-xl">
+                    {navItems.map((item, key) => (
+                        <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        
+                        >
+                            {item.name}
+                        </a>
+                    ))}
+                </div>
+            </div>            
         </div>
     </nav> 
     );
