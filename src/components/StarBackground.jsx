@@ -69,11 +69,8 @@ export const StarBackground = () => {
                         left: meteor.x + "%",
                         top: meteor.y + "%",
                         opacity: meteor.opacity,
-                        animationName: "meteor",
                         animationDelay: meteor.delay,
                         animationDuration: meteor.animationDuration + "s",
-                        animationTimingFunction: "linear",
-                        animationIterationCount: "infinite",
                     }}
                 />
             ))}
