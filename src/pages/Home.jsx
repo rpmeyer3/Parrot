@@ -2,6 +2,7 @@ import React from "react";
 import { ThemeToggle } from "../components/ThemeToggle.jsx";
 import { StarBackground } from '@/components/StarBackground';
 import { Navbar } from "../components/Navbar"
+import { HeroSection } from "../components/HeroSection";
 
 export const Home = () =>  {
 
@@ -14,6 +15,9 @@ export const Home = () =>  {
             {/* Navbar */}
                 <Navbar />
             {/* Content */}
+            <main>
+                <HeroSection />
+            </main>
 
             {/* Footer */}
         </div>

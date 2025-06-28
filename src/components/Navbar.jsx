@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
-    {name: "Home", href: "#Home"},
+    {name: "Home", href: "#hero"},
     {name: "Skills", href: "#Skills"},
     {name: "Education", href: "#Education"},
     {name: "Projects", href: "#Projects"},
