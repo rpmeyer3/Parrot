@@ -26,7 +26,7 @@ export const StarBackground = () => {
     };
 
     const generateMeteors = () => {
-        const numberOfMeteors = 4
+        const numberOfMeteors = 4;
         const newMeteors = [];
 
         for (let i = 0; i < numberOfMeteors; i++) {
@@ -65,12 +65,15 @@ export const StarBackground = () => {
                     className="meteor animate-meteor"
                     style={{
                         width: meteor.size * 50 + "px",
-                        height: meteor.size * 3 + "px",
+                        height: meteor.size * 2 + "px",
                         left: meteor.x + "%",
                         top: meteor.y + "%",
                         opacity: meteor.opacity,
+                        animationName: "meteor",
                         animationDelay: meteor.delay,
                         animationDuration: meteor.animationDuration + "s",
+                        animationTimingFunction: "linear",
+                        animationIterationCount: "infinite",
                     }}
                 />
             ))}
