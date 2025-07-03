@@ -1,7 +1,10 @@
 import React from "react";
+import { Code } from "lucide-react"
+import { User } from "lucide-react"
+import { Briefcase} from "lucide-react"
 
 export const AboutSection = () => {
-    return <section id="about" className="py-24 px-4 relative">
+    return ( <section id="about" className="py-24 px-4 relative">
         <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                 About <span className="text-primary">Me</span>
@@ -19,30 +22,61 @@ export const AboutSection = () => {
                     </p>
                     <p className="text-muted-foreground">
                         In college I have been staying relatively active in the Hackathon space attending my schools own and at Georgia Tech not 
-                        taking home any major hardware. I find myself invloded in the HackPack. In my freetime I play a great deal of Tennis and Soccer to stay sociable and atheletic. I also venture into the 
+                        taking home any major hardware. I find myself invloded in the HackPack. In my freetime I play a great deal of Tennis and Soccer to stay sociable and athletic. I also venture into the 
                         gym when I find myself free, which is not very often.
                     </p>
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                            <a href="#contact" className="cosmic-button"> Get in Touch </a>
-                            <a href="" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 tansition-colors duration-300"> Download Resume</a>
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+                        <a href="#contact" className="cosmic-button"> Get in Touch </a>
+                        <a href="" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 tansition-colors duration-300"> Download Resume</a>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6">
+                    <div className="gradient-border p-6 card-hover">
+                        <div className="flex items-start gap-4">
+                            <div className="p-3 rounded-full bg-primary/10">
+                                <Code className="h-6 w-6 text-primary"/>
+                            </div>
+                            <div className="text-left">
+                                <h4 className="font-semibold text-lg"> Machine Learning</h4>
+                                <p className="text-muted-foreground">
+                                    I have some interesting experience training TensorFlow models for various tasks in work and 
+                                    school.
+                                </p>
+                            </div>
                         </div>
-                    <div>
-
-                        <div className="grid grid-cols-1 gap-6">
-                            <div className="gradient-border p-6 card-hover">
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 rounded-full bg-primary/10">
-                                        <div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
+                    </div>
+                    <div className="gradient-border p-6 card-hover">
+                        <div className="flex items-start gap-4">
+                            <div className="p-3 rounded-full bg-primary/10">
+                                <User className="h-6 w-6 text-primary"/>
+                            </div>
+                            <div className="text-left">
+                                <h4 className="font-semibold text-lg"> Machine Learning</h4>
+                                <p className="text-muted-foreground">
+                                    I have some interesting experience training TensorFlow models for various tasks in work and 
+                                    school.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="gradient-border p-6 card-hover">
+                        <div className="flex items-start gap-4">
+                            <div className="p-3 rounded-full bg-primary/10">
+                                <Briefcase className="h-6 w-6 text-primary"/>
+                            </div>
+                                <div className="text-left">
+                                <h4 className="font-semibold text-lg"> Machine Learning</h4>
+                                <p className="text-muted-foreground">
+                                    I have some interesting experience training TensorFlow models for various tasks in work and 
+                                    school.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
     </section>
-}
+    );
+};
