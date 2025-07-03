@@ -38,10 +38,9 @@ export const AboutSection = () => {
                                 <Code className="h-6 w-6 text-primary"/>
                             </div>
                             <div className="text-left">
-                                <h4 className="font-semibold text-lg"> Machine Learning</h4>
+                                <h4 className="font-semibold text-lg"> Programming Interests</h4>
                                 <p className="text-muted-foreground">
-                                    I have some interesting experience training TensorFlow models for various tasks in work and 
-                                    school.
+                                    I am very interested in finding a position doing Machine Learning or Cloud Security
                                 </p>
                             </div>
                         </div>
@@ -52,10 +51,10 @@ export const AboutSection = () => {
                                 <User className="h-6 w-6 text-primary"/>
                             </div>
                             <div className="text-left">
-                                <h4 className="font-semibold text-lg"> Machine Learning</h4>
+                                <h4 className="font-semibold text-lg"> Education </h4>
                                 <p className="text-muted-foreground">
-                                    I have some interesting experience training TensorFlow models for various tasks in work and 
-                                    school.
+                                    I am currently a Senior at UGA studying Computer Science, if I could go back in time I would likely
+                                    be more alligned with Computer Engineering or EE.
                                 </p>
                             </div>
                         </div>
@@ -66,10 +65,10 @@ export const AboutSection = () => {
                                 <Briefcase className="h-6 w-6 text-primary"/>
                             </div>
                                 <div className="text-left">
-                                <h4 className="font-semibold text-lg"> Machine Learning</h4>
+                                <h4 className="font-semibold text-lg"> Work Experience</h4>
                                 <p className="text-muted-foreground">
-                                    I have some interesting experience training TensorFlow models for various tasks in work and 
-                                    school.
+                                    Since joining SAIA Ltl. I've been working with some C# and performing Data Augmentation and Mining 
+                                    with Python and I've have been training and testing a ML Model for Mining and the process for RFP uploads to Salesforce. 
                                 </p>
                             </div>
                         </div>
