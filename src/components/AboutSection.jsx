@@ -23,23 +23,23 @@ export const AboutSection = () => {
                         gym when I find myself free, which is not very often.
                     </p>
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                            <a href="contact" className="cosmic-button"> Get in Touch </a>
+                            <a href="#contact" className="cosmic-button"> Get in Touch </a>
                             <a href="" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 tansition-colors duration-300"> Download Resume</a>
                         </div>
                     <div>
 
-                        <div className="grid grid-cols-1 gap-6"></div>
-                        <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10">
+                        <div className="grid grid-cols-1 gap-6">
+                            <div className="gradient-border p-6 card-hover">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 rounded-full bg-primary/10">
+                                        <div>
+
+                                        </div>
+                                    </div>
 
                                 </div>
-
                             </div>
                         </div>
-                        <div className="gradient-border p-6 card-hover"></div>
-                        <div className="gradient-border p-6 card-hover"></div>
-
                     </div>
                 </div>
             </div>
