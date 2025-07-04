@@ -16,7 +16,7 @@ export const AboutSection = () => {
                     <p className="text-muted-foreground">
                         As a rising Senior in my CS education I have been around the block completing my major technical course work.
                         I currently attend the University of Georgia in Athens, Georgia. I am Originally from Cummming, Georgia.
-                        I have been working the past 52 weeks as an intern and part-time employee for SAIA LTL. I am a part of some of their
+                        I have been working the past 52 weeks as an intern and part-time employee for SAIA Ltl. I am a part of some of their
                         major Buisness Intelligence and C# Development. I have also been building machine learning models and tools with 
                         TensorFlow and Ollama for some data mining and engineering pipelines related to customer shipment level data.
                     </p>
