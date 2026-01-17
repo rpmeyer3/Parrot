@@ -1,66 +1,68 @@
-import React, { useState } from "react"
+import React from "react"
+import { Code, Database, Brain, Cloud, Wrench } from "lucide-react"
 
-const skills = [
-    //Top Languages
-    {name: "JavaScript", level: 20, category: "Language"},
-    {name: "Python", level: 60, category: "Language "},
-    {name: "Java", level: 70, category: "Language"},
-    {name: "C++", level: 60, category: "Language "},
-    {name: "Rust", level: 40, category: "Language "},
-
-    //Top Tech
-    {name: "TensorFlow", level: 80, category: "Machine Learning "},
-    {name: "SQLite", level: 40, category: "Backend"},
-    {name: "React", level: 70, category: "Frontend"},
-    {name: "AWS", level: 65, category: "API/Cloud Service"},
-    {name: "Databricks", level: 50, category: "Cloud Analytics"},
-
-    //Top Concepts
-    {name: "Machine Learning", level: 90, category: "Concept"},
-    {name: "Data Mining", level: 100, category: "Concept"},
-    {name: "Data Analysis", level: 95, category: "Concept"},
-    {name: "Algorithm Analysis", level: 75, category: "Concept"},
-    {name: "Cloud Security", level: 65, category: "Concept"},
-    
- ];
+const skillCategories = [
+    {
+        name: "Languages",
+        icon: Code,
+        skills: ["Python", "Java", "C++", "JavaScript", "Rust", "C#", "SQL"]
+    },
+    {
+        name: "Machine Learning",
+        icon: Brain,
+        skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Ollama", "Data Mining", "Model Training"]
+    },
+    {
+        name: "Cloud & DevOps",
+        icon: Cloud,
+        skills: ["AWS", "Databricks", "Docker", "Git", "CI/CD"]
+    },
+    {
+        name: "Data & Backend",
+        icon: Database,
+        skills: ["SQLite", "PostgreSQL", "Data Analysis", "ETL Pipelines", "Salesforce"]
+    },
+    {
+        name: "Tools & Frameworks",
+        icon: Wrench,
+        skills: ["React", ".NET", "Node.js", "Jupyter", "VS Code"]
+    }
+];
 
 export const SkillsSection = () => {
+    return (
+        <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+            <div className="container mx-auto max-w-5xl">
+                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                    My <span className="text-primary">Skills</span>
+                </h2>
 
-    const [activeCategory, setActiveCategory] = useState("all");
-
-    return ( <section id="skills" className="py-24 px-4 relative bg-secondary/30"
-    >
-        <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 font-center">
-                My <span> Skills </span> 
-            </h2>
-                
-                <div className >
-
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {skillCategories.map((category, index) => (
+                        <div 
+                            key={index} 
+                            className="gradient-border p-6 card-hover"
+                        >
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="p-2 rounded-lg bg-primary/10">
+                                    <category.icon className="h-6 w-6 text-primary" />
+                                </div>
+                                <h3 className="font-semibold text-lg">{category.name}</h3>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {category.skills.map((skill, skillIndex) => (
+                                    <span 
+                                        key={skillIndex}
+                                        className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors cursor-default"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
-
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {skills.map((skill, key) =>(
-                    <div key={key} className="bg-card p-6 rounded-lg shadow-xs card-hover"
-                    >
-                        <div className="text-left mb-4">
-                            <h3 className="font-semibold text-lg"> {skill.name} </h3>
-                        </div>
-                        <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                        <div className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out" 
-                            style={{width: skill.level + "%"}}
-                        />
-                        </div>
-                        <div className="text-right mt-1">
-                            <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                        </div>
-                    </div>
-                ))}
             </div>
-        </div>
-
-
-    </section>
+        </section>
     );
 }
