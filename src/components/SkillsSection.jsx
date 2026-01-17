@@ -5,27 +5,27 @@ const skillCategories = [
     {
         name: "Languages",
         icon: Code,
-        skills: ["Python", "Java", "C++", "JavaScript", "Rust", "C#", "SQL"]
+        skills: ["Python", "Java", "SQL", "C#", "JavaScript", "TypeScript", "C", "C++"]
     },
     {
-        name: "Machine Learning",
+        name: "ML & Data",
         icon: Brain,
-        skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Ollama", "Data Mining", "Model Training"]
+        skills: ["TensorFlow", "Keras", "Pandas", "NumPy", "Power BI", "DAX", "OpenAI API"]
     },
     {
-        name: "Cloud & DevOps",
-        icon: Cloud,
-        skills: ["AWS", "Databricks", "Docker", "Git", "CI/CD"]
-    },
-    {
-        name: "Data & Backend",
-        icon: Database,
-        skills: ["SQLite", "PostgreSQL", "Data Analysis", "ETL Pipelines", "Salesforce"]
-    },
-    {
-        name: "Tools & Frameworks",
+        name: "Web & Backend",
         icon: Wrench,
-        skills: ["React", ".NET", "Node.js", "Jupyter", "VS Code"]
+        skills: ["React", "Node.js", "Next.js", "Django", "Flask", "Tailwind CSS", "Supabase"]
+    },
+    {
+        name: "Cloud & Tools",
+        icon: Cloud,
+        skills: ["AWS (S3, EC2)", "Azure", "Docker", "Terraform", "Git", "Salesforce", "Dynamics 365", "Wireshark"]
+    },
+    {
+        name: "Databases",
+        icon: Database,
+        skills: ["MySQL", "MongoDB", "SQLite", "PostgreSQL"]
     }
 ];
 
