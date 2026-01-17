@@ -8,6 +8,7 @@ const projects = [
         tech: ["Next.js", "React", "Django", "PostgreSQL", "Docker"],
         icon: Film,
         period: "Spring 2025",
+        github: "https://github.com/rpmeyer3/film-hub",
         highlights: [
             "Engineered secure CI/CD pipeline with Docker",
             "Implemented OAuth 2.0/JWT authentication & RBAC",
@@ -20,6 +21,7 @@ const projects = [
         tech: ["React", "Flask", "OpenAI Whisper", "T5 Transformer", "Google Cloud TTS"],
         icon: Mic,
         period: "Fall 2024",
+        github: "https://github.com/Ig0rGon/UgaHacksX",
         highlights: [
             "Integrated OpenAI Whisper for transcription",
             "Used Google's T5 Transformer for summarization",
@@ -65,7 +67,7 @@ export const ProjectsSection = () => {
                                 ))}
                             </ul>
 
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
                                 {project.tech.map((tech, techIndex) => (
                                     <span 
                                         key={techIndex}
@@ -75,6 +77,16 @@ export const ProjectsSection = () => {
                                     </span>
                                 ))}
                             </div>
+
+                            <a 
+                                href={project.github} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 mt-4 text-primary hover:underline"
+                            >
+                                <Github className="h-4 w-4" />
+                                View on GitHub
+                            </a>
                         </div>
                     ))}
                 </div>
