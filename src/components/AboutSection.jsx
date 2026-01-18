@@ -25,9 +25,8 @@ export const AboutSection = () => {
                         for document classification, and built ETL pipelines processing 50M+ records. I'm passionate about 
                         machine learning, data engineering, and building systems that create real business impact.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                        <a href="#contact" className="cosmic-button"> Get in Touch </a>
-                        <a href="/Ryan_Meyer.pdf" download="Ryan_Meyer_Resume.pdf" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 tansition-colors duration-300"> Download Resume</a>
+                    <div className="flex justify-center pt-4">
+                        <a href="/Ryan_Meyer.pdf" download="Ryan_Meyer_Resume.pdf" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"> Download Resume</a>
                     </div>
                 </div>
 

@@ -6,14 +6,26 @@ export const HeroSection = () => {
     >
             <div className="container max-w-4xl mx-auto text-center z-10">
                 <div className="space-y-6">
+                    {/* Profile Photo */}
+                    <div className="flex justify-center opacity-0 animate-fade-in">
+                        <div className="relative">
+                            <img 
+                                src="/IMG_5342.jpeg" 
+                                alt="Ryan Meyer"
+                                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg"
+                            />
+                            <div className="absolute inset-0 rounded-full border-4 border-primary/30 animate-pulse-subtle"></div>
+                        </div>
+                    </div>
+
                     <h1 className ="text-4xl md:text-6xl font-bold tracking-tight">
-                        <span className="opacity-0 animate-fade-in">Howdy, I am </span>
-                        <span className="text-primary opacity-0 animate-fade-in-delay-1"> Literally</span>
-                        <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2"> Batman</span>
+                        <span className="opacity-0 animate-fade-in">Howdy, I'm </span>
+                        <span className="text-primary opacity-0 animate-fade-in-delay-1"> Ryan</span>
+                        <span className="text-primary ml-2 opacity-0 animate-fade-in-delay-2"> Meyer</span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        Well probably not, but one can dream... 
+                        CS Senior at UGA | ML & Data Engineering Enthusiast
                     </p>
 
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
