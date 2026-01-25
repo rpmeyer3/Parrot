@@ -44,7 +44,7 @@ export const ProjectsSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {projects.map((project, index) => (
                         <ScrollReveal key={index} delay={index * 150} direction={index % 2 === 0 ? "left" : "right"}>
-                            <div className="glass-card-hover p-6 h-full">
+                            <div className="glass-card-hover p-6 h-full flex flex-col">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-3 rounded-lg bg-primary/10">
                                     <project.icon className="h-6 w-6 text-primary" />
@@ -59,7 +59,7 @@ export const ProjectsSection = () => {
                                 {project.description}
                             </p>
 
-                            <ul className="space-y-2 mb-4">
+                            <ul className="space-y-2 mb-4 flex-grow">
                                 {project.highlights.map((highlight, hIndex) => (
                                     <li key={hIndex} className="text-sm text-muted-foreground flex items-start gap-2">
                                         <span className="text-primary mt-1">▹</span>
@@ -68,7 +68,7 @@ export const ProjectsSection = () => {
                                 ))}
                             </ul>
 
-                            <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
+                            <div className="flex flex-wrap gap-2 pt-4 border-t border-border mt-auto">
                                 {project.tech.map((tech, techIndex) => (
                                     <span 
                                         key={techIndex}
@@ -83,7 +83,7 @@ export const ProjectsSection = () => {
                                 href={project.github} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 mt-4 text-primary hover:underline hover:text-orange-400 transition-colors"
+                                className="flex items-center justify-center gap-2 mt-4 text-primary hover:underline hover:text-orange-400 transition-colors"
                             >
                                 <Github className="h-4 w-4" />
                                 View on GitHub
