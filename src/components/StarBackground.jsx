@@ -2,13 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 
 export const StarBackground = () => {
     const [stars, setStars] = useState([]);
-    const [meteors, setMeteors] = useState([]);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const containerRef = useRef(null);
 
     useEffect(() => {
         generateStars();
-        generateMeteors();
 
         const handleResize = () => {
             generateStars();
@@ -42,27 +40,10 @@ export const StarBackground = () => {
                 y: Math.random() * 100,
                 opacity: Math.random() * 0.5 + 0.5,
                 animationDuration: Math.random() * 4 + 2,
-                parallaxFactor: Math.random() * 0.5 + 0.1, // Different layers move at different speeds
+                parallaxFactor: Math.random() * 0.5 + 0.1,
             });
         }
         setStars(newStars);
-    };
-
-    const generateMeteors = () => {
-        const numberOfMeteors = 4;
-        const newMeteors = [];
-
-        for (let i = 0; i < numberOfMeteors; i++) {
-            newMeteors.push({
-                id: i,
-                size: Math.random() * 2 + 1,
-                x: Math.random() * 100,
-                y: Math.random() * 20,
-                delay: i * 2 + Math.random() * 3, // Stagger meteors so they don't all start at once
-                animationDuration: Math.random() * 3 + 3,
-            });
-        }
-        setMeteors(newMeteors);
     };
 
     return (
@@ -79,22 +60,6 @@ export const StarBackground = () => {
                         opacity: star.opacity,
                         animationDuration: star.animationDuration + "s",
                         transform: `translate(${mousePosition.x * star.parallaxFactor}px, ${mousePosition.y * star.parallaxFactor}px)`,
-                    }}
-                />
-            ))}
-
-            {meteors.map((meteor) => (
-                <div
-                    key={meteor.id}
-                    className="meteor animate-meteor"
-                    style={{
-                        width: meteor.size * 50 + "px",
-                        height: meteor.size * 2 + "px",
-                        left: meteor.x + "%",
-                        top: meteor.y + "%",
-                        opacity: meteor.opacity,
-                        animationDelay: meteor.delay + "s",
-                        animationDuration: meteor.animationDuration + "s",
                     }}
                 />
             ))}
