@@ -58,7 +58,7 @@ export const StarBackground = () => {
                 size: Math.random() * 2 + 1,
                 x: Math.random() * 100,
                 y: Math.random() * 20,
-                delay: Math.random() * 15,
+                delay: i * 2 + Math.random() * 3, // Stagger meteors so they don't all start at once
                 animationDuration: Math.random() * 3 + 3,
             });
         }
