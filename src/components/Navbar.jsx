@@ -17,7 +17,20 @@ export const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10);
+            // Only show glass effect after scrolling past the home section
+            const homeSection = document.getElementById("home");
+            if (homeSection) {
+                const homeBottom = homeSection.getBoundingClientRect().bottom;
+                setIsScrolled(homeBottom <= 100);
+            }
+            
+            // Check if we're near the bottom of the page
+            const scrolledToBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+            
+            if (scrolledToBottom) {
+                setActiveSection("contact");
+                return;
+            }
             
             // Detect active section
             const sections = navItems.map(item => item.href.substring(1));
