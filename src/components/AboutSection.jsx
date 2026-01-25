@@ -17,8 +17,8 @@ export const AboutSection = () => {
                         <div className="space-y-6">
                             <h3 className="text-2xl font-semibold">CS Senior at UGA | ML & Data Engineering</h3>
                     <p className="text-muted-foreground">
-                        I'm a Computer Science senior at the University of Georgia (3.72 GPA) graduating in May 2026. 
-                        I transferred from Georgia College & State University where I made Dean's List with a 4.0 GPA. 
+                        I'm a Computer Science senior at the University of Georgia graduating in May 2026. 
+                        I transferred from Georgia College & State University where I made Dean's List. 
                         Originally from Cumming, Georgia, I've spent the past year at Saia LTL Freight progressing from 
                         Data Engineering Intern to Machine Learning Intern.
                     </p>
@@ -62,8 +62,8 @@ export const AboutSection = () => {
                                     <div className="text-left">
                                         <h4 className="font-semibold text-lg">Education</h4>
                                         <p className="text-muted-foreground">
-                                            B.S. Computer Science at UGA (3.72 GPA, May 2026). 
-                                            Transferred from GCSU where I achieved Dean's List with a 4.0 GPA.
+                                            B.S. Computer Science at UGA, graduating May 2026. 
+                                            Transferred from GCSU where I achieved Dean's List.
                                         </p>
                                     </div>
                                 </div>
