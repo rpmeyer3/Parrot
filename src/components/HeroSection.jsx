@@ -1,47 +1,94 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowDown } from "lucide-react";
 
+// Typing effect hook
+const useTypingEffect = (texts, typingSpeed = 100, deletingSpeed = 50, pauseDuration = 2000) => {
+    const [displayText, setDisplayText] = useState("");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const currentText = texts[currentIndex];
+        
+        const timeout = setTimeout(() => {
+            if (!isDeleting) {
+                if (displayText.length < currentText.length) {
+                    setDisplayText(currentText.slice(0, displayText.length + 1));
+                } else {
+                    setTimeout(() => setIsDeleting(true), pauseDuration);
+                }
+            } else {
+                if (displayText.length > 0) {
+                    setDisplayText(currentText.slice(0, displayText.length - 1));
+                } else {
+                    setIsDeleting(false);
+                    setCurrentIndex((prev) => (prev + 1) % texts.length);
+                }
+            }
+        }, isDeleting ? deletingSpeed : typingSpeed);
+
+        return () => clearTimeout(timeout);
+    }, [displayText, currentIndex, isDeleting, texts, typingSpeed, deletingSpeed, pauseDuration]);
+
+    return displayText;
+};
+
 export const HeroSection = () => {
-    return<section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4"
-    >
+    const roles = [
+        "CS Senior at UGA",
+        "ML Enthusiast",
+        "Data Engineering Fan",
+        "Problem Solver",
+        "Lifelong Learner"
+    ];
+    
+    const typedText = useTypingEffect(roles, 80, 40, 1500);
+
+    return (
+        <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4">
             <div className="container max-w-4xl mx-auto text-center z-10">
                 <div className="space-y-6">
-                    {/* Profile Photo */}
+                    {/* Profile Photo with glow effect */}
                     <div className="flex justify-center opacity-0 animate-fade-in">
-                        <div className="relative">
+                        <div className="relative group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-orange-400 to-primary rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse-subtle"></div>
                             <img 
                                 src="/IMG_5342.jpeg" 
                                 alt="Ryan Meyer"
-                                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg"
+                                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 rounded-full border-4 border-primary/30 animate-pulse-subtle"></div>
                         </div>
                     </div>
 
-                    <h1 className ="text-4xl md:text-6xl font-bold tracking-tight">
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                         <span className="opacity-0 animate-fade-in">Howdy, I'm </span>
                         <span className="text-primary opacity-0 animate-fade-in-delay-1"> Ryan</span>
                         <span className="text-primary ml-2 opacity-0 animate-fade-in-delay-2"> Meyer</span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        CS Senior at UGA | ML & Data Engineering Enthusiast
-                    </p>
+                    {/* Typing effect for roles */}
+                    <div className="h-8 md:h-10 flex items-center justify-center opacity-0 animate-fade-in-delay-3">
+                        <p className="text-lg md:text-xl text-muted-foreground">
+                            {typedText}
+                            <span className="animate-blink text-primary">|</span>
+                        </p>
+                    </div>
 
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                        <a href="#projects" className="cosmic-button">
-                            View My Work
+                        <a href="#projects" className="cosmic-button group">
+                            <span className="relative z-10">View My Work</span>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div>
                         </a>
                     </div>
                 </div>
             </div>
 
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-                <span className="txt-sm text-muted-foreground mb-2">
+                <span className="text-sm text-muted-foreground mb-2">
                     Take a Gander
                 </span>
-                <ArrowDown className="h-5 w-5 text-primary " />
+                <ArrowDown className="h-5 w-5 text-primary" />
             </div>
-
-    </section>
+        </section>
+    );
 }

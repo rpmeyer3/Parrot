@@ -1,5 +1,6 @@
 import React from "react";
 import { ExternalLink, Github, Film, Mic } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 
 const projects = [
     {
@@ -34,16 +35,16 @@ export const ProjectsSection = () => {
     return (
         <section id="projects" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-                    Featured <span className="text-primary">Projects</span>
-                </h2>
+                <ScrollReveal>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                        Featured <span className="text-primary">Projects</span>
+                    </h2>
+                </ScrollReveal>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {projects.map((project, index) => (
-                        <div 
-                            key={index} 
-                            className="gradient-border p-6 card-hover"
-                        >
+                        <ScrollReveal key={index} delay={index * 150} direction={index % 2 === 0 ? "left" : "right"}>
+                            <div className="glass-card-hover p-6 h-full">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-3 rounded-lg bg-primary/10">
                                     <project.icon className="h-6 w-6 text-primary" />
@@ -82,12 +83,13 @@ export const ProjectsSection = () => {
                                 href={project.github} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 mt-4 text-primary hover:underline"
+                                className="inline-flex items-center gap-2 mt-4 text-primary hover:underline hover:text-orange-400 transition-colors"
                             >
                                 <Github className="h-4 w-4" />
                                 View on GitHub
                             </a>
-                        </div>
+                            </div>
+                        </ScrollReveal>
                     ))}
                 </div>
             </div>
