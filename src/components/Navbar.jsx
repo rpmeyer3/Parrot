@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
@@ -14,39 +14,47 @@ export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
+    const ticking = useRef(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            // Only show glass effect after scrolling past the home section
-            const homeSection = document.getElementById("home");
-            if (homeSection) {
-                const homeBottom = homeSection.getBoundingClientRect().bottom;
-                setIsScrolled(homeBottom <= 100);
-            }
-            
-            // Check if we're near the bottom of the page
-            const scrolledToBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
-            
-            if (scrolledToBottom) {
-                setActiveSection("contact");
-                return;
-            }
-            
-            // Detect active section
-            const sections = navItems.map(item => item.href.substring(1));
-            for (const section of sections.reverse()) {
-                const element = document.getElementById(section);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top <= 150) {
-                        setActiveSection(section);
-                        break;
+            if (!ticking.current) {
+                requestAnimationFrame(() => {
+                    // Only show glass effect after scrolling past the home section
+                    const homeSection = document.getElementById("home");
+                    if (homeSection) {
+                        const homeBottom = homeSection.getBoundingClientRect().bottom;
+                        setIsScrolled(homeBottom <= 100);
                     }
-                }
+                    
+                    // Check if we're near the bottom of the page
+                    const scrolledToBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+                    
+                    if (scrolledToBottom) {
+                        setActiveSection("contact");
+                        ticking.current = false;
+                        return;
+                    }
+                    
+                    // Detect active section
+                    const sections = navItems.map(item => item.href.substring(1));
+                    for (const section of [...sections].reverse()) {
+                        const element = document.getElementById(section);
+                        if (element) {
+                            const rect = element.getBoundingClientRect();
+                            if (rect.top <= 150) {
+                                setActiveSection(section);
+                                break;
+                            }
+                        }
+                    }
+                    ticking.current = false;
+                });
+                ticking.current = true;
             }
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
