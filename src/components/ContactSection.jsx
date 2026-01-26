@@ -7,25 +7,29 @@ const contactLinks = [
         name: "Email",
         value: "ryanpaulmeyer@gmail.com",
         href: "mailto:ryanpaulmeyer@gmail.com",
-        icon: Mail
+        icon: Mail,
+        note: null
     },
     {
         name: "Phone",
         value: "(470) 841-9228",
         href: "tel:+14708419228",
-        icon: Phone
+        icon: Phone,
+        note: "please shoot a text me first if we haven't met "
     },
     {
         name: "LinkedIn",
         value: "linkedin.com/in/rmeyer3",
         href: "https://linkedin.com/in/rmeyer3",
-        icon: Linkedin
+        icon: Linkedin,
+        note: null
     },
     {
         name: "GitHub",
         value: "github.com/rpmeyer3",
         href: "https://github.com/rpmeyer3",
-        icon: Github
+        icon: Github,
+        note: null
     }
 ];
 
@@ -56,6 +60,11 @@ export const ContactSection = () => {
                                         <contact.icon className="h-6 w-6 text-primary" />
                                     </div>
                                     <h3 className="font-semibold">{contact.name}</h3>
+                                    {contact.note && (
+                                        <p className="text-xs text-muted-foreground/70 italic">
+                                            {contact.note}
+                                        </p>
+                                    )}
                                     <p className="text-sm text-muted-foreground break-all group-hover:text-primary transition-colors">
                                         {contact.value}
                                     </p>
