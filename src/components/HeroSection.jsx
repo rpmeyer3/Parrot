@@ -45,9 +45,9 @@ export const HeroSection = () => {
     const typedText = useTypingEffect(roles, 80, 40, 1500);
 
     return (
-        <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4">
+        <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-16 sm:pt-0">
             <div className="container max-w-4xl mx-auto text-center z-10">
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                     {/* Profile Photo with glow effect */}
                     <div className="flex justify-center opacity-0 animate-fade-in">
                         <div className="relative group">
@@ -55,27 +55,27 @@ export const HeroSection = () => {
                             <img 
                                 src="/IMG_5342.jpeg" 
                                 alt="Ryan Meyer"
-                                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg transition-transform duration-500 group-hover:scale-105"
+                                className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">
                         <span className="opacity-0 animate-fade-in">Howdy, I'm </span>
                         <span className="text-primary opacity-0 animate-fade-in-delay-1"> Ryan</span>
-                        <span className="text-primary ml-2 opacity-0 animate-fade-in-delay-2"> Meyer</span>
+                        <span className="text-primary ml-1 sm:ml-2 opacity-0 animate-fade-in-delay-2"> Meyer</span>
                     </h1>
 
                     {/* Typing effect for roles */}
-                    <div className="h-8 md:h-10 flex items-center justify-center opacity-0 animate-fade-in-delay-3">
-                        <p className="text-lg md:text-xl text-muted-foreground">
+                    <div className="h-7 sm:h-8 md:h-10 flex items-center justify-center opacity-0 animate-fade-in-delay-3">
+                        <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
                             {typedText}
                             <span className="animate-blink text-primary">|</span>
                         </p>
                     </div>
 
-                    <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                        <a href="#projects" className="cosmic-button group">
+                    <div className="pt-2 sm:pt-4 opacity-0 animate-fade-in-delay-4">
+                        <a href="#projects" className="cosmic-button group text-sm sm:text-base">
                             <span className="relative z-10">View My Work</span>
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div>
                         </a>
@@ -83,11 +83,11 @@ export const HeroSection = () => {
                 </div>
             </div>
 
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-                <span className="text-sm text-muted-foreground mb-2">
+            <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+                <span className="text-xs sm:text-sm text-muted-foreground mb-2">
                     Take a Gander
                 </span>
-                <ArrowDown className="h-5 w-5 text-primary" />
+                <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             </div>
         </section>
     );

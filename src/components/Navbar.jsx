@@ -113,7 +113,7 @@ export const Navbar = () => {
                     className="md:hidden p-2 text-foreground z-50 relative group" 
                     aria-label={isMenuOpen ? "Close Menu": "Open Menu"}
                 > 
-                    <span className="absolute inset-0 bg-primary/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                    <span className="absolute inset-0 bg-primary/10 rounded-lg scale-0 group-active:scale-100 transition-transform duration-300"></span>
                     <span className="relative">
                         {isMenuOpen ? <X size={24} /> : <Menu size={24}/>}
                     </span>
@@ -124,17 +124,21 @@ export const Navbar = () => {
                     "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center transition-all duration-500 md:hidden",
                     isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                 )}>
-                    <div className="flex flex-col items-center space-y-6 text-xl">
+                    {/* Theme toggle in mobile menu */}
+                    <div className="absolute top-4 right-16">
+                    </div>
+                    
+                    <div className="flex flex-col items-center space-y-5 text-lg">
                         {navItems.map((item, key) => (
                             <a
                                 key={key}
                                 href={item.href}
                                 className={cn(
-                                    "relative px-6 py-3 rounded-full font-medium transition-all duration-300",
+                                    "relative px-8 py-4 rounded-full font-medium transition-all duration-300 min-w-[160px] text-center",
                                     isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
                                     activeSection === item.href.substring(1)
                                         ? "text-primary-foreground bg-primary shadow-lg shadow-primary/25"
-                                        : "text-foreground/80 hover:text-primary hover:bg-primary/10"
+                                        : "text-foreground/80 active:text-primary active:bg-primary/10"
                                 )}
                                 style={{ transitionDelay: isMenuOpen ? `${key * 75}ms` : '0ms' }}
                                 onClick={() => setIsMenuOpen(false)}

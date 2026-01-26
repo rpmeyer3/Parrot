@@ -3,23 +3,27 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 export const StarBackground = () => {
     const [stars, setStars] = useState([]);
     const containerRef = useRef(null);
-    const mouseRef = useRef({ x: 0, y: 0 });
     const rafRef = useRef(null);
+    const isMobile = useRef(false);
 
     useEffect(() => {
+        // Detect mobile device
+        isMobile.current = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+        
         generateStars();
 
         const handleResize = () => {
+            isMobile.current = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
             generateStars();
         };
 
-        // Throttled mouse parallax effect using CSS custom properties
-        const handleMouseMove = (e) => {
-            if (rafRef.current) return;
+        // Throttled mouse/touch parallax effect using CSS custom properties
+        const handleMove = (clientX, clientY) => {
+            if (rafRef.current || isMobile.current) return; // Disable parallax on mobile for performance
             
             rafRef.current = requestAnimationFrame(() => {
-                const x = (e.clientX / window.innerWidth - 0.5) * 20;
-                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                const x = (clientX / window.innerWidth - 0.5) * 20;
+                const y = (clientY / window.innerHeight - 0.5) * 20;
                 
                 if (containerRef.current) {
                     containerRef.current.style.setProperty('--mouse-x', `${x}px`);
@@ -29,18 +33,29 @@ export const StarBackground = () => {
             });
         };
 
+        const handleMouseMove = (e) => handleMove(e.clientX, e.clientY);
+        const handleTouchMove = (e) => {
+            if (e.touches.length > 0) {
+                handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        };
+
         window.addEventListener('resize', handleResize);
         window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
         return () => {
             window.removeEventListener("resize", handleResize);
             window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("touchmove", handleTouchMove);
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
         };
     }, []);  
 
     const generateStars = () => {
-        const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 15000); // Reduced star count
+        // Fewer stars on mobile for better performance
+        const divisor = isMobile.current ? 25000 : 15000;
+        const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / divisor);
         const newStars = [];
         for (let i = 0; i < numberOfStars; i++) {
             newStars.push({
@@ -50,7 +65,7 @@ export const StarBackground = () => {
                 y: Math.random() * 100,
                 opacity: Math.random() * 0.5 + 0.5,
                 animationDuration: Math.random() * 4 + 2,
-                parallaxFactor: Math.random() * 0.5 + 0.1,
+                parallaxFactor: isMobile.current ? 0 : Math.random() * 0.5 + 0.1,
             });
         }
         setStars(newStars);
