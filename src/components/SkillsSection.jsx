@@ -6,27 +6,27 @@ const skillCategories = [
     {
         name: "Languages",
         icon: Code,
-        skills: ["Python", "Java", "SQL", "C#", "JavaScript", "TypeScript", "C", "C++"]
+        skills: ["Python", "Java", "C++", "C#", "SQL", "JavaScript", "TypeScript", "Bash/Shell", "HTML5 & Tailwind"]
     },
     {
-        name: "ML & Data",
+        name: "AI & ML",
         icon: Brain,
-        skills: ["TensorFlow", "Keras", "Pandas", "NumPy", "Power BI", "DAX", "OpenAI API"]
+        skills: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn", "LangChain", "OpenCV", "Hugging Face", "MLOps", "RAG"]
     },
     {
         name: "Web & Backend",
         icon: Wrench,
-        skills: ["React", "Node.js", "Next.js", "Django", "Flask", "Tailwind CSS", "Supabase"]
+        skills: ["Next.js", "React", "Node.js", "Django", "FastAPI", "GraphQL", "Prisma", "Supabase"]
     },
     {
-        name: "Cloud & Tools",
+        name: "Cloud & DevOps",
         icon: Cloud,
-        skills: ["AWS (S3, EC2)", "Azure", "Docker", "Terraform", "Git", "Salesforce", "Dynamics 365", "Wireshark"]
+        skills: ["AWS (Lambda, S3, RDS)", "GCP", "Vercel", "Render", "Docker", "Kubernetes", "Terraform", "Linux", "Git"]
     },
     {
-        name: "Databases",
+        name: "Data & Analytics",
         icon: Database,
-        skills: ["MySQL", "MongoDB", "SQLite", "PostgreSQL"]
+        skills: ["Pandas", "NumPy", "Power BI", "DAX", "XGBoost", "MongoDB", "Cassandra", "Neo4j", "PostgreSQL"]
     }
 ];
 

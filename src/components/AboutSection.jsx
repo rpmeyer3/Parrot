@@ -10,7 +10,7 @@ const aboutCards = [
         description: "Progressed through 3 roles: Data Engineering Intern → Part-Time Contractor → Machine Learning Intern over the past year.",
         highlights: [
             "Engineered automation pipeline reducing RFP processing from 3+ months to 8 hours",
-            "Designed Siamese neural network achieving 0.99 AUC-ROC for document classification",
+            "Designed Siamese neural network achieving 0.97 AUC-ROC for document classification",
             "Built ETL pipelines processing 50M+ records"
         ],
         tags: ["ML Pipelines", "ETL", "Salesforce", "Dynamics 365"]
@@ -45,11 +45,11 @@ const aboutCards = [
         icon: Code,
         description: "Specializing in machine learning, data engineering, and building production-ready applications.",
         highlights: [
-            "TensorFlow/Keras for deep learning models",
-            "AWS & Azure cloud infrastructure",
+            "TensorFlow, PyTorch & Keras for deep learning models",
+            "AWS & GCP cloud infrastructure",
             "Enterprise CRM integrations"
         ],
-        tags: ["TensorFlow", "AWS", "Azure", "Python"]
+        tags: ["TensorFlow", "PyTorch", "AWS", "Python"]
     }
 ];
 
