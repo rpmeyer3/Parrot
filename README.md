@@ -1,4 +1,4 @@
-# Parrot — Personal Portfolio
+# Parrot: Personal Portfolio
 
 **My personal developer portfolio** · React 19 + Vite + Tailwind. Live at [ryanmeyer.vercel.app](https://ryanmeyer.vercel.app/).
 
