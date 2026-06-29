@@ -1,5 +1,7 @@
 # Parrot: Personal Portfolio
 
+> **This is v1.** My current personal site is v2, live at [www.ryanmeyer.dev](https://www.ryanmeyer.dev) ([rpmeyer3/Macaw](https://github.com/rpmeyer3/Macaw)). This Vite version stays deployed at the link below.
+
 **My personal developer portfolio** · React 19 + Vite + Tailwind. Live at [ryanmeyer.vercel.app](https://ryanmeyer.vercel.app/).
 
 A modern, responsive portfolio site featuring dark/light theme toggling, animated starfield backgrounds, scroll-reveal animations, and section-based navigation.
